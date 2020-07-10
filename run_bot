@@ -121,26 +121,26 @@ fi
 while [ "$1" != "" ]; do
     case $1 in
         -b | --bot_name )       shift
-                                BOT_NAME=$1
+                                BOT_NAME="$1"
                                 ;;
         -h | --help )           display_usage
                                 exit
                                 ;;
         -l | --lobby )          shift
-                                LOBBY_URI=$1
+                                LOBBY_URI="$1"
                                 ;;
         -L | --lobby_support_password )       shift
-                                              LOBBY_SUPPORT_PASSWORD=$1
+                                              LOBBY_SUPPORT_PASSWORD="$1"
                                               ;;
         -P | --password )       shift
-                                BOT_PASSWORD=$1
+                                BOT_PASSWORD="$1"
                                 ;;
 
         -p | --port )           shift
                                 BOT_PORT=$1
                                 ;;
         -u | --username )       shift
-                                USER=$1
+                                USER="$1"
                                 ;;
         * )                     display_usage
                                 exit 1

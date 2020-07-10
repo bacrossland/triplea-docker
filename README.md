@@ -15,25 +15,25 @@ run TripleA Docker must support Docker Volumes.
 To run the container use the following format:
 
 `
-$ docker run -d --rm --name <name_of_container> -v <name_of_volume>:/opt/triplea -p 3300:3300 triplea:latest run_bot -u <username>
+$ docker run -d --rm --name <name_of_container> -v <name_of_volume>:/opt/triplea -p 3300:3300 <image_name> run_bot -u <username>
 `
 
 example:
 
 `
-$ docker run --rm --name triplea -v triplea:/opt/triplea -p 3300:3300 triplea:latest run_bot -u RandoUser
+$ docker run -d --rm --name triplea -v triplea:/opt/triplea -p 3300:3300 bacrossland/triplea:latest run_bot -u RandoUser
 `
 
 If you want to use a different port than 3300, you will need to specify that for Docker and run_bot.
 
 `
-$ docker run -d --rm --name <name_of_container> -v <name_of_volume>:/opt/triplea -p <port_you_want_to_use>:<port_you_want_to_use> triplea:latest run_bot -u <username> -p <port_you_want_to_use>
+$ docker run -d --rm --name <name_of_container> -v <name_of_volume>:/opt/triplea -p <port_you_want_to_use>:<port_you_want_to_use> <image_name> run_bot -u <username> -p <port_you_want_to_use>
 `
 
 example:
 
 `
-$ docker run --rm --name triplea -v triplea:/opt/triplea -p 3400:3400 triplea:latest run_bot -u RandoUser -p 3400
+$ docker run --rm --name triplea -v triplea:/opt/triplea -p 3400:3400 bacrossland/triplea:latest run_bot -u RandoUser -p 3400
 `
 
 Additional run_bot options are below. You can also get them by running the container with no options specified.
