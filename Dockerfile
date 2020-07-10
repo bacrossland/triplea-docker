@@ -9,6 +9,6 @@ RUN mkdir -p triplea/downloadedMaps && mkdir -p triplea/savedGames
 COPY run_bot /usr/bin
 RUN chmod +x /usr/bin/run_bot
 
-VOLUME ["/opt/triplea"]
+VOLUME ["/opt/triplea/downloadedMaps","/opt/triplea/savedGames"]
 
 CMD ["run_bot", "--help"]
