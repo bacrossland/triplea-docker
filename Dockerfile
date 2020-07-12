@@ -1,9 +1,9 @@
 FROM openjdk:11
-ARG version=2.1.20365
+ARG version=2.1.0
 
 WORKDIR /opt
-RUN wget https://github.com/triplea-game/triplea/releases/download/${version}/triplea-game-headless-${version}.zip && \
-unzip triplea-game-headless-${version}.zip && rm triplea-game-headless-${version}.zip && rm run_bot*
+COPY triplea-game-headless-${version}.zip .
+RUN unzip triplea-game-headless-${version}.zip && rm triplea-game-headless-${version}.zip && rm run_bot*
 
 RUN mkdir -p triplea/downloadedMaps && mkdir -p triplea/savedGames
 COPY run_bot /usr/bin
