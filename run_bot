@@ -58,21 +58,6 @@ BOT_PORT=3300
 BOT_NAME=
 
 #
-# The password used to secure access to games running on your bot.  Users
-# attempting to start a new game or connect to an existing game on your bot
-# will be prompted for this password.  If the password is an empty string,
-# the user will not be prompted, and any lobby user will be able to use your
-# bot.
-#
-# The default value is an empty password. You should change this to a
-# non-empty string if you do not want arbitrary users to use your bot.  For
-# example, you may wish to run a private game for you and some friends.  In
-# that case, set the password to a non-empty string and communicate it to
-# your friends in some manner (e.g. via email).
-#
-BOT_PASSWORD=
-
-#
 # The hostname of the lobby to which the bot will connect.
 #
 # The default value is the hostname for the TripleA community's public lobby.
@@ -108,7 +93,6 @@ display_usage() {
 	echo -e "   -h, --help                      Display this help and exit"
 	echo -e "   -l, --lobby                     Hostname of the lobby to which the bot will connect (default \"https://lobby.triplea-game.org\")"
 	echo -e "   -L, --lobby_support_password    Lobby support password to secure remote maintenance (default is no password)"
-	echo -e "   -P, --password                  Bot password to secure games running on bot (default is no password)"
 	echo -e "   -p, --port                      Port to run the bot on (default 3300)"
 	echo -e "   -u, --username                  Your TripleA Username"
 	}
@@ -121,7 +105,7 @@ fi
 while [ "$1" != "" ]; do
     case $1 in
         -b | --bot_name )       shift
-                                BOT_NAME="$1"
+                                BOT_NAME="Bot_$1"
                                 ;;
         -h | --help )           display_usage
                                 exit
@@ -132,9 +116,6 @@ while [ "$1" != "" ]; do
         -L | --lobby_support_password )       shift
                                               LOBBY_SUPPORT_PASSWORD="$1"
                                               ;;
-        -P | --password )       shift
-                                BOT_PASSWORD="$1"
-                                ;;
 
         -p | --port )           shift
                                 BOT_PORT=$1
@@ -167,5 +148,4 @@ java \
     -Ptriplea.lobby.uri="$LOBBY_URI" \
     -Ptriplea.map.folder="$MAPS_FOLDER" \
     -Ptriplea.name="$BOT_NAME" \
-    -Ptriplea.port="$BOT_PORT" \
-    -Ptriplea.server.password="$BOT_PASSWORD"
+    -Ptriplea.port="$BOT_PORT"
