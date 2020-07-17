@@ -5,7 +5,7 @@ WORKDIR /opt
 COPY triplea-game-headless-${version}.zip .
 RUN unzip triplea-game-headless-${version}.zip && rm triplea-game-headless-${version}.zip && rm run_bot*
 
-RUN mkdir -p triplea/downloadedMaps && mkdir -p triplea/savedGames
+RUN mkdir -p triplea/downloadedMaps && mkdir -p triplea/savedGames && mkdir -p triplea/savedGames/logs
 COPY run_bot /usr/bin
 RUN chmod +x /usr/bin/run_bot
 

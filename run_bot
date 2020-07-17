@@ -178,4 +178,4 @@ java \
     -Ptriplea.name="$BOT_NAME" \
     -Ptriplea.port="$BOT_PORT" \
     -Ptriplea.server.password="$BOT_PASSWORD" \
-    -Ptriplea.lobby.game.comments="$LOBBY_GAME_COMMENTS"
+    -Ptriplea.lobby.game.comments="$LOBBY_GAME_COMMENTS" >/opt/triplea/savedGames/logs/log.txt 2>&1
