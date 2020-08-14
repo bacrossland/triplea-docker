@@ -1,5 +1,5 @@
 FROM openjdk:11
-ARG version=2.1.20365
+ARG version=2.2.20790
 
 WORKDIR /opt
 RUN wget https://github.com/triplea-game/triplea/releases/download/${version}/triplea-game-headless-${version}.zip && \
