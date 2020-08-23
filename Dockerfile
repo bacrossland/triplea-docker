@@ -1,5 +1,5 @@
 FROM openjdk:11
-ARG version=2.2.0
+ARG version=2.3.0
 
 WORKDIR /opt
 COPY triplea-game-headless-${version}.zip .
