@@ -48,7 +48,6 @@ Options:
    -b, --bot_name                  Name the bot uses in the lobby (default "Bot_{username}_{port}")
    -h, --help                      Display this help and exit
    -l, --lobby                     Hostname of the lobby to which the bot will connect (default "https://lobby.triplea-game.org")
-   -L, --lobby_support_password    Lobby support password to secure remote maintenance (default is no password)
    -p, --port                      Port to run the bot on (default 3300)
    -u, --username                  Your TripleA Username
 ```
