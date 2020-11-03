@@ -81,20 +81,6 @@ BOT_PASSWORD=
 LOBBY_URI="https://prod2-lobby.triplea-game.org"
 
 #
-# The password used to secure remote maintenance of your bot.  A lobby
-# moderator who wishes to perform remote maintenance on your bot will be
-# required to enter this password in order to complete any maintenance
-# action.  If the password is an empty string, a lobby moderator will be able
-# to perform remote maintenance on your bot without your permission.
-#
-# The default value is an empty password. You should change this to a
-# non-empty string if you do not want lobby moderators to interfere with the
-# operation of your bot.  Note that a lobby moderator that cannot perform
-# remote maintenance of your bot may choose to boot your bot from the lobby.
-#
-LOBBY_SUPPORT_PASSWORD=
-
-#
 # The comment that shows in the game lobby. When left blank, TripleA will set this
 # to the standard Bot comment.
 #
@@ -114,7 +100,6 @@ display_usage() {
 	echo -e "   -c, --lobby_comment             The comment used in the lobby (default \"automated_host\")"
 	echo -e "   -h, --help                      Display this help and exit"
 	echo -e "   -l, --lobby                     Hostname of the lobby to which the bot will connect (default \"https://lobby.triplea-game.org\")"
-	echo -e "   -L, --lobby_support_password    Lobby support password to secure remote maintenance (default is no password)"
 	echo -e "   -P, --password                  Bot password to secure games running on bot (default is no password)"
 	echo -e "   -p, --port                      Port to run the bot on (default 3300)"
 	echo -e "   -u, --username                  Your TripleA Username"
@@ -139,9 +124,6 @@ while [ "$1" != "" ]; do
         -l | --lobby )          shift
                                 LOBBY_URI="$1"
                                 ;;
-        -L | --lobby_support_password )       shift
-                                              LOBBY_SUPPORT_PASSWORD="$1"
-                                              ;;
         -P | --password )       shift
                                 BOT_PASSWORD=$1
                                 ;;
@@ -172,7 +154,6 @@ java \
     -Xmx256M \
     -Djava.awt.headless=true \
     -jar /opt/bin/triplea-game-headless-*.jar \
-    -Ptriplea.lobby.game.supportPassword="$LOBBY_SUPPORT_PASSWORD" \
     -Ptriplea.lobby.uri="$LOBBY_URI" \
     -Ptriplea.map.folder="$MAPS_FOLDER" \
     -Ptriplea.name="$BOT_NAME" \
